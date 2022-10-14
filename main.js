@@ -69,7 +69,7 @@ function atualizaEstatisticas (peca, operacao){
 }
 
 function alteraCorRobo(cor) {
-    corAtual.src = `img/Robotron 2000 - ${cor}.png`
+    corAtual.src = `img/robotron-${cor}.png`
 }
 
 function alteraEstiloBotao(botao) {
