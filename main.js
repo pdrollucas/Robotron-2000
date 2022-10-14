@@ -37,7 +37,8 @@ const pecas = {
         "velocidade": -2
     }
 }
-console.log(estatistica)
+const corAtual = document.querySelector('[data-cor-robo]');
+const botoesCor = document.querySelectorAll('[data-opcao-cor]');
 
 controle.forEach( (elemento) => {
     elemento.addEventListener("click", (evento) => {
@@ -66,3 +67,20 @@ function atualizaEstatisticas (peca, operacao){
         elemento.textContent = parseInt (elemento.textContent) - pecas[peca] [elemento.dataset.estatistica]
     })}
 }
+
+function alteraCorRobo(cor) {
+    corAtual.src = `img/Robotron 2000 - ${cor}.png`
+}
+
+function alteraEstiloBotao(botao) {
+    document.querySelector('[data-cor-ativa]').removeAttribute('data-cor-ativa');
+    botao.setAttribute('data-cor-ativa', '');
+}
+
+botoesCor.forEach((botao) => {
+    botao.addEventListener('click', (e) => {
+        corEscolhida = e.target.dataset.opcaoCor;
+        alteraCorRobo(corEscolhida);
+        alteraEstiloBotao(botao);
+    });
+});
